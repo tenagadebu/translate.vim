@@ -127,7 +127,7 @@ endfunction
 
 " create translate result window
 function! s:create_tran_window() abort
-    let s:currentw = winnr()
+    let s:currentw = win_getid()
 
     if has("patch-8.1.1513") && s:current_mode == 0
         call popup_close(s:last_popup_window)
@@ -170,7 +170,7 @@ function! s:create_tran_window() abort
             if empty(win_findbuf(tranw))
                 execute str2nr(winsize_) . "new | e" s:translate_bufname
             endif
-            "call s:focus_window(tranw)
+            call s:focus_window(bufwinid(tranw))
         endif
 
         silent % d _
