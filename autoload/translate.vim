@@ -142,7 +142,7 @@ function! s:create_tran_window() abort
             endfor
 
             let pos = getpos(".")
-            let result_height = len(s:result) + 2 " 2 is border thickness
+            let result_height = len(s:result) / maxwidth + 2 " 2 is border thickness
 
             let line = "cursor-".printf("%d", result_height)
             if pos[1] <  result_height
