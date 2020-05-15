@@ -142,7 +142,7 @@ function! s:create_tran_window() abort
             endfor
 
             let pos = getpos(".")
-            let result_height = len(s:result) / maxwidth + 2 " 2 is border thickness
+            let result_height = len(s:result) + 4 " 2 is border thickness
 
             let line = "cursor-".printf("%d", result_height)
             if pos[1] <  result_height
@@ -151,7 +151,7 @@ function! s:create_tran_window() abort
 
             let s:last_popup_window = popup_create(s:result, {
                         \ "pos":"topleft",
-                        \ "border": [1, 1, 1, 1],
+                        \ "border": [0, 0, 0, 0],
                         \ "line":line,
                         \ "col":"cursor",
                         \ "maxwidth":maxwidth,
